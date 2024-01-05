@@ -10,10 +10,10 @@ export class EstadoNeutral extends Estado {
     alimentar() {
         this.tamagochi.vida++;
         this.tamagochi.vida = (this.tamagochi.vida < 100) ? this.tamagochi.vida ++ : 100;
-        this.tamagochi.energia = (this.tamagochi.vida < 100) ? this.tamagochi.energia ++ : 100;
+        this.tamagochi.energia = (this.tamagochi.vida < 100) ? this.tamagochi.energia ++ : this.energia;
     };
     mimar() {
-        this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? this.tamagochi.felicidad ++ : this.tamagochi.felicidad;
+        this.tamagochi.felicidad = (this.tamagochi.felicidad < 96) ? ++this.tamagochi.felicidad : this.tamagochi.felicidad;
     };
     golpear() {
         this.tamagochi.vida = (this.tamagochi.vida > 0) ? --this.tamagochi.vida : 0;
@@ -30,6 +30,8 @@ export class EstadoNeutral extends Estado {
         this.tamagochi.felicidad = 50;
     };
     bajaStats() {
-        this.tamagochi.vida--;
+        this.tamagochi.vida -=0.25;
+        this.tamagochi.energia -= 0.25;
+        this.tamagochi.felicidad -= 0.25;
     };
 }

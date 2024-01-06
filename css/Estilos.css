@@ -153,3 +153,24 @@ body.nightmode-on .buttons a:hover, body.nightmode-on .menu-buttons a:hover {
   position: relative;
   margin-bottom: 10px;
 }
+
+.vida-barra {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #000;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.vida-llena {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}
+.barra {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #000;
+  position: relative;
+  margin-bottom: 10px;
+}

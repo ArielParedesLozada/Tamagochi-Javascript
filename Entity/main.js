@@ -4,7 +4,8 @@ import { Tamagochi } from './Tamagochi.js';
 let tamago;
 let vidaObserver;
 let hambreObserver;
-let juegoObserver
+let juegoObserver;
+const startBtn = document.querySelector("#action-menu-start-game");
 
 window.alimentar = function alimentar() {
     tamago.alimentar();
@@ -27,9 +28,23 @@ window.muestraVida = function muestraVida() {
     console.log("Felicidad: " + tamago.felicidad);
     console.log("Su estado es: " + tamago.getEstado());
 }
+
+
+
+
+startBtn.addEventListener("click", function() {
+	creaTamagochi();
+});
+
+
 window.creaTamagochi = function creaTamagochi() {
-    const nombre = document.getElementById('nombre').value;
-    tamago = new Tamagochi(nombre, 100, 100, 50, "neutral");
+    var tamagotchiName = prompt("Please, enter a name of your tamagotchi:", "");
+
+    if (tamagotchiName == null || tamagotchiName.replace(/\s/g, '') == "") {
+        tamagotchiName = "Tamagotchi";
+    }
+    
+    tamago = new Tamagochi(tamagotchiName, 100, 100, 50, "neutral");
     tamago.setearEstado();
     let vidaLlena = document.getElementById('vida-llena');
     let energiaLlena = document.getElementById('hambre-llena');

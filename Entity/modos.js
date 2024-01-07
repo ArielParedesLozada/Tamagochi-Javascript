@@ -1,20 +1,35 @@
+const settingsBtn = document.querySelector("#action-menu-settings");
+const settingsBackBtn = document.querySelector("#action-settings-back");
+const nightModeOffBtn = document.querySelector("#nightmode-off");
+const nightModeOnBtn = document.querySelector("#nightmode-on");
 
-const startBtn = document.querySelector("#action-menu-start-game");
 
-
-startBtn.addEventListener("click", function() {
-	startGame();
+settingsBackBtn.addEventListener("click", function() {
+	MainMenu();
 });
 
-function startGame() {
+nightModeOffBtn.addEventListener("click", function() {
+	nightModeOff();
+});
 
-	//Tamagotchi's name
-	var tamagotchiName = prompt("Please, enter a name of your tamagotchi:", "");
-	document.querySelector("#name").innerHTML = tamagotchiName;
-	if (tamagotchiName == null || tamagotchiName.replace(/\s/g, '') == "") {
-		tamagotchiName = "Tamagotchi";
-		document.querySelector("#name").innerHTML = tamagotchiName;
-	}
-	
+nightModeOnBtn.addEventListener("click", function() {
+	nightModeOn();
+});
+
+//NightMode toggle
+function nightModeOn() {
+	document.querySelector('body').classList.add("nightmode-on");
+	document.querySelector('#nightmode').innerHTML = "on";
 }
 
+function nightModeOff() {
+	document.querySelector('body').classList.remove("nightmode-on");
+	document.querySelector('#nightmode').innerHTML = "off";
+}
+
+//Togglers for buttons
+
+function settingsMenu() {
+	document.querySelector(".main-menu-screen").classList.toggle("hide");
+	document.querySelector(".menu-screen-settings").classList.toggle("hide");
+}

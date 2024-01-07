@@ -13,7 +13,8 @@ export class EstadoEnfermo extends Estado{
         this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? this.tamagochi.felicidad ++ : this.tamagochi.felicidad;
     };
     mimar(){
-        this.tamagochi.felicidad ++;
+        console.log("Necesito la medicina CÚRAMEEE");
+        //this.tamagochi.felicidad ++;
     };
     golpear(){
         this.tamagochi.vida = (this.tamagochi.vida > 0) ? this.tamagochi.vida -= 5 : 0;
@@ -21,8 +22,9 @@ export class EstadoEnfermo extends Estado{
         this.tamagochi.felicidad = (this.tamagochi.felicidad > 0) ? this.tamagochi.felicidad -=5 : 0;
     };
     jugar(){
-        this.tamagochi.energia ++;
-        this.tamagochi.felicidad --; 
+        console.log("No puedo jugar Necesito la medicina Cúrame!!!!!");
+        //this.tamagochi.energia ++;
+        //this.tamagochi.felicidad --; 
     };
     curar(){
         this.tamagochi.vida = 100;

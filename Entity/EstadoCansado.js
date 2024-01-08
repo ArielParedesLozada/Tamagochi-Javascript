@@ -8,12 +8,12 @@ export class EstadoCansado extends Estado{
         return "cansado";
     }
     alimentar(){
-        this.tamagochi.vida = (this.tamagochi.vida < 100) ? this.tamagochi.vida ++ : this.tamagochi.vida;
-        this.tamagochi.energia = (this.tamagochi.vida < 98) ? this.tamagochi.energia += 2 : this.tamagochi.energia;
-        this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? this.tamagochi.felicidad ++ : this.tamagochi.felicidad;
+        this.tamagochi.vida = (this.tamagochi.vida < 100) ? ++this.tamagochi.vida : 100;
+        this.tamagochi.energia = (this.tamagochi.energia < 98) ? this.tamagochi.energia += 2 : 100;
+        this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? ++this.tamagochi.felicidad: 100;
     };
     mimar(){
-        this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? this.tamagochi.felicidad ++ : this.tamagochi.felicidad;
+        this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? ++this.tamagochi.felicidad : 100;
     };
     golpear(){
         this.tamagochi.vida = (this.tamagochi.vida > 0) ? -- this.tamagochi.vida: 0;
@@ -29,7 +29,7 @@ export class EstadoCansado extends Estado{
     };
     bajaStats(){
         this.tamagochi.vida --;
-        this.tamagochi.energia -= 2;
-        this.tamagochi.felicidad --;
+        this.tamagochi.energia = (this.tamagochi.energia > 0) ? this.tamagochi.energia -= 2 : 0;
+        this.tamagochi.felicidad = (this.tamagochi.felicidad > 0) ? this.tamagochi.felicidad -= 1 : 0;
     };
 }

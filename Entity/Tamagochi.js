@@ -48,6 +48,7 @@ export class Tamagochi {
         this.notifyObservers();
     };
     cambiaEstado() {
+        this.estado.bajaStats();
         let varVida = (this.vida > 50) ? 11 : 17;
         let varEnergia = (this.energia > 25) ? 3 : 2;
         let varFelicidad = (this.felicidad > 50) ? 5 : 7;
@@ -55,39 +56,41 @@ export class Tamagochi {
         switch (varT) {
             case 0:
                 this.setEstado("cansado");
+                this.notifyObservers();
                 break;
             case 1:
                 this.setEstado("feliz");
+                this.notifyObservers();
                 break;
             case 2:
                 this.setEstado("triste");
+                this.notifyObservers();
                 break;
             case 3:
                 this.setEstado("neutral");
+                this.notifyObservers();
                 break;
             case 7:
                 this.setEstado("hambriento");
+                this.notifyObservers();
                 break;
             default:
                 this.setEstado("enfermo");
+                this.notifyObservers();
                 break;
         }
         if (this.vida <= 0) {
             this.setEstado("muerto");
+            this.notifyObservers();
         }
-    };
-    bajaStats() {
-        this.estado.bajaStats();
-        this.notifyObservers();
     };
     setearEstado() {
         let intervalo = setInterval(() => {
             if (this.vida > 0) {
-                this.bajaStats();
                 this.cambiaEstado();
             } else {
                 clearInterval(intervalo);
             }
-        }, 500);
+        }, 1000);
     }
 }

@@ -55,25 +55,32 @@ export class Tamagochi {
         switch (varT) {
             case 0:
                 this.setEstado("cansado");
+                imagenTamagotchi.src = 'img/duncansado.png';
                 break;
             case 1:
                 this.setEstado("feliz");
+                imagenTamagotchi.src = 'img/dunfeliz.png';
                 break;
             case 2:
                 this.setEstado("triste");
+                imagenTamagotchi.src = 'img/duntriste.png';
                 break;
             case 3:
                 this.setEstado("neutral");
+                imagenTamagotchi.src = 'img/dun.png';
                 break;
             case 7:
                 this.setEstado("hambriento");
+                imagenTamagotchi.src = 'img/dunhambriento.png';
                 break;
             default:
                 this.setEstado("enfermo");
+                imagenTamagotchi.src = 'img/dunenfermo.png';
                 break;
         }
         if (this.vida <= 0) {
             this.setEstado("muerto");
+            imagenTamagotchi.src = 'img/dunmuerto.png';
         }
     };
     bajaStats() {

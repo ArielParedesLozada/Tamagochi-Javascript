@@ -20,6 +20,7 @@ window.jugar = function jugar() {
 }
 window.curar = function curar() {
     tamago.curar();
+    
 }
 window.muestraVida = function muestraVida() {
     console.log("Vida: " + tamago.vida);
@@ -27,9 +28,34 @@ window.muestraVida = function muestraVida() {
     console.log("Felicidad: " + tamago.felicidad);
     console.log("Su estado es: " + tamago.getEstado());
 }
+
+let nombreTamagochi;
+
+window.mostrarModal = function mostrarModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
+
+window.cerrarModal = function cerrarModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+window.redirigirHtml = function redirigirHtml() {
+    nombreTamagochi = document.getElementById('nombre').value;
+    localStorage.setItem('nombreTamagochi', nombreTamagochi);
+
+    // Añade un pequeño retraso antes de redirigir
+    setTimeout(function() {
+        window.location.href = "tamagochi.html";
+    }, 100);
+}
+
 window.creaTamagochi = function creaTamagochi() {
-    const nombre = document.getElementById('nombre').value;
-    tamago = new Tamagochi(nombre, 100, 100, 50, "neutral");
+    const nombreTamagochi = localStorage.getItem('nombreTamagochi');
+
+    tamago = new Tamagochi(nombreTamagochi, 100, 100, 50, "neutral");
+    console.log("El nombre de su tamagochi es: "+nombreTamagochi)
     tamago.setearEstado();
     let vidaLlena = document.getElementById('vida-llena');
     let energiaLlena = document.getElementById('hambre-llena');
@@ -46,6 +72,7 @@ window.creaTamagochi = function creaTamagochi() {
         const felicidadActual = tamago.felicidad;
         felicidadLlena.style.width = `${felicidadActual}%`;
     });
+    
     tamago.addObserver(vidaObserver);
     tamago.addObserver(hambreObserver);
     tamago.addObserver(juegoObserver);
@@ -54,4 +81,5 @@ window.creaTamagochi = function creaTamagochi() {
     console.log(window.golpear);
     console.log(window.jugar);
     console.log(window.curar);
+    
 }

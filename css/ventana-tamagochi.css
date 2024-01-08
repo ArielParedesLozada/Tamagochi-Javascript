@@ -1,0 +1,67 @@
+.barra {
+    width: 50vw;
+    height: 50px;
+    border: 1px solid #000;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.vida-llena {
+    width: 50vw;
+    height: 100%;
+    background-color: red;
+}
+
+.energia-llena {
+    width: 50vw;
+    height: 100%;
+    background-color: green;
+}
+
+.felicidad-llena {
+    width: 50vw;
+    height: 100%;
+    background-color: yellow;
+}
+.vida-llena::after{
+    content: url("../images/vida.png");
+}
+
+.energia-llena:after {
+    content: url("../images/energia.png");
+}
+
+.felicidad-llena:after {
+    content: url("../images/felicidad.png");
+}
+
+.boton{
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.boton:hover{
+    height: 120px;
+}
+
+#alimenta {
+    background-image: url('../images/alimentar.png');
+}
+
+#mima {
+    background-image: url('../images/mimar.png');
+}
+
+#juega {
+    background-image: url('../images/jugar.png');
+}
+
+#cura {
+    background-image: url('../images/curar.png');
+}
+
+#golpea {
+    background-image: url('../images/golpear.png');
+}

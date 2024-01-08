@@ -8,12 +8,12 @@ export class EstadoFeliz extends Estado{
         return "feliz";
     }
     alimentar(){
-        this.tamagochi.vida = (this.tamagochi.vida < 100) ? ++this.tamagochi.vida : this.tamagochi.vida;
+        this.tamagochi.vida = (this.tamagochi.vida < 100) ? ++this.tamagochi.vida : 100;
         this.tamagochi.energia = (this.tamagochi.energia < 98) ? this.tamagochi.energia += 2 : 100;
-        this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? ++this.tamagochi.felicidad : this.tamagochi.felicidad;
+        this.tamagochi.felicidad = (this.tamagochi.felicidad < 100) ? ++this.tamagochi.felicidad : 100;
     };
     mimar(){
-        this.tamagochi.felicidad = (this.tamagochi.felicidad < 95) ? this.tamagochi.felicidad + 5 : 100
+        this.tamagochi.felicidad = (this.tamagochi.felicidad < 95) ? this.tamagochi.felicidad += 5 : 100;
     };
     golpear(){
         this.tamagochi.vida = (this.tamagochi.vida > 0) ? -- this.tamagochi.vida: 0;
@@ -21,7 +21,7 @@ export class EstadoFeliz extends Estado{
         this.tamagochi.felicidad = (this.tamagochi.felicidad > 0) ? -- this.tamagochi.felicidad : 0;
     };
     jugar(){
-        this.tamagochi.energia = (this.tamagochi.energia > 0) ? --this.tamagochi.energia : 0;
+        this.tamagochi.energia = (this.tamagochi.energia > 0) ? --this.tamagochi.energia: 0;
         this.tamagochi.felicidad = (this.tamagochi.felicidad < 95) ? this.tamagochi.felicidad += 5 : 100;
     };
     curar(){
@@ -31,7 +31,7 @@ export class EstadoFeliz extends Estado{
     };
     bajaStats(){
         this.tamagochi.vida --;
-        this.tamagochi.energia --;
-        this.tamagochi.felicidad --;
+        this.tamagochi.energia = (this.tamagochi.energia > 0) ? this.tamagochi.energia -= 1 : 0;
+        this.tamagochi.felicidad = (this.tamagochi.felicidad > 0) ? this.tamagochi.felicidad -= 1 : 0;
     };
 }

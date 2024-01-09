@@ -1,6 +1,8 @@
 import { Observer } from './Entity/Observer.js';
 import { Tamagochi } from './Entity/Tamagochi.js';
+import { TamagochiVestido } from './Entity/DecoratorRopa.js';
 
+let vestido = false;
 let tamago;
 let vidaLlena = document.getElementById('vida-llena');
 let energiaLlena = document.getElementById('energia-llena');
@@ -9,43 +11,56 @@ let imagenTamagochi = document.getElementById('imagen-tamagochi');
 
 window.alimentar = function alimentar() {
     tamago.alimentar();
-    console.log(tamago.vida);
-    console.log(tamago.energia);
-    console.log(tamago.felicidad);
+    console.log(tamago.getVida());
+    console.log(tamago.getEnergia());
+    console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
 window.mimar = function mimar() {
     tamago.mimar();
-    console.log(tamago.vida);
-    console.log(tamago.energia);
-    console.log(tamago.felicidad);
+    console.log(tamago.getVida());
+    console.log(tamago.getEnergia());
+    console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
 window.golpear = function golpear() {
     tamago.golpear();
-    console.log(tamago.vida);
-    console.log(tamago.energia);
-    console.log(tamago.felicidad);
+    console.log(tamago.getVida());
+    console.log(tamago.getEnergia());
+    console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
 window.jugar = function jugar() {
     tamago.jugar();
-    console.log(tamago.vida);
-    console.log(tamago.energia);
-    console.log(tamago.felicidad);
+    console.log(tamago.getVida());
+    console.log(tamago.getEnergia());
+    console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
 window.curar = function curar() {
     tamago.curar();
-    console.log(tamago.vida);
-    console.log(tamago.energia);
-    console.log(tamago.felicidad);
+    console.log(tamago.getVida());
+    console.log(tamago.getEnergia());
+    console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
 window.muestraVida = function muestraVida() {
-    console.log(tamago.vida);
-    console.log(tamago.energia);
-    console.log(tamago.felicidad);
+    console.log(tamago.getVida());
+    console.log(tamago.getEnergia());
+    console.log(tamago.getFelicidad());
+    console.log(tamago.getEstado());
+}
+window.ropear = function ropear() {
+    if (vestido) {
+        tamago = tamago.getTamagochi();
+        vestido = false;
+    } else {
+        tamago = new TamagochiVestido(tamago);
+        vestido = true;
+    }
+    console.log(tamago.getVida());
+    console.log(tamago.getEnergia());
+    console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
 

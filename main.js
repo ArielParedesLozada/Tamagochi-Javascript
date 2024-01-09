@@ -65,10 +65,6 @@ window.ropear = function ropear() {
     console.log("Se le ha vestido a su tamagochi");
 }
 
-
-
-
-
 let nombreTamagochi;
 
 window.mostrarModal = function mostrarModal() {
@@ -125,4 +121,38 @@ window.creaTamagochi = function creaTamagochi() {
     tamago.addObserver(energiaObserver);
     tamago.addObserver(felicidadObserver);
     tamago.addObserver(imagenObserver);
+}
+window.guardarTamagochi = function guardarTamagochi() {
+    
+    const estado = {
+        vidaTamagotchi: tamago.getVida(),
+        tipoEstado: tamago.getEstado(), 
+    };
+
+    const estadoStr = JSON.stringify(estado);
+    const blob = new Blob([estadoStr], { type: 'application/json' });
+
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'estadoTamagotchi.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Redirigir al login.html después de guardar
+    window.location.href = '../Index.html';
+    
+}
+window.cargarTamagochi = function cargarTamagochi() {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const estado = JSON.parse(e.target.result);
+            localStorage.setItem('nombreUsuario', estado.nombreUsuario);
+            localStorage.setItem('estadoTamagotchi', JSON.stringify(estado));
+            window.location.href = '../Index.html';
+        };
+        reader.readAsText(file);
+    }
 }

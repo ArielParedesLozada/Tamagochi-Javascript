@@ -9,6 +9,19 @@ export class Tamagochi {
         this.estado = FactoryEstados.factoryEstado(estado, this);
         this.observers = [];
     }
+
+    getVida(){
+        return this.vida;
+    };
+
+    getEnergia(){
+        return this.energia;
+    };
+
+    getFelicidad(){
+        return this.felicidad;
+    };
+
     addObserver(observer) {
         this.observers.push(observer);
     };

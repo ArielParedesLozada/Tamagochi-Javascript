@@ -67,6 +67,8 @@ window.ropear = function ropear() {
 
 
 
+
+
 let nombreTamagochi;
 
 window.mostrarModal = function mostrarModal() {
@@ -101,18 +103,18 @@ window.creaTamagochi = function creaTamagochi() {
     tamago = new Tamagochi(nombreTamagochi, 100, 100, 50, "neutral");
     console.log("El nombre de su tamagochi es: " + nombreTamagochi);
     let vidaObserver = new Observer(() => {
-        vidaLlena.style.width = `${tamago.vida}%`;
-        vidaLlena.innerText = `${tamago.vida}%`;
+        vidaLlena.style.width = `${tamago.getVida()}%`;
+        vidaLlena.innerText = `${tamago.getVida()}%`;
         vidaLlena.style.textAlign = 'right';
     });
     let energiaObserver = new Observer(() => {
-        energiaLlena.style.width = `${tamago.energia}%`;
-        energiaLlena.innerText = `${tamago.energia}%`;
+        energiaLlena.style.width = `${tamago.getEnergia()}%`;
+        energiaLlena.innerText = `${tamago.getEnergia()}%`;
         energiaLlena.style.textAlign = 'right';
     });
     let felicidadObserver = new Observer(() => {
-        felicidadLlena.style.width = `${tamago.felicidad}%`;
-        felicidadLlena.innerText = `${tamago.felicidad}%`;
+        felicidadLlena.style.width = `${tamago.getFelicidad()}%`;
+        felicidadLlena.innerText = `${tamago.getFelicidad()}%`;
         felicidadLlena.style.textAlign = 'right';
     });
     let imagenObserver = new Observer(() => {

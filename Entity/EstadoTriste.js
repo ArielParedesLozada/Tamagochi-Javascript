@@ -5,7 +5,7 @@ export class EstadoTriste extends Estado{
         this.tamagochi = tamagochi;
     }
     getEstado(){
-        return "hambriento";
+        return "triste";
     }
     alimentar(){
         this.tamagochi.vida = (this.tamagochi.vida < 100) ? ++this.tamagochi.vida : this.tamagochi.vida;

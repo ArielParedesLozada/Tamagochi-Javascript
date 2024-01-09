@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Estilos.css">
+	<link rel="icon" href="img/Logotipo.png" type="image/x-icon">
+    <title>TAMAGOCHI</title>
+</head>
+<body>
+    <div class="main-menu-screen">
+        <div class="menu">
+            <h1>Tamagotchi POO</h1>
+            <h3>Bienvenido!!! Empieza a crear tu propia mascota virtual</h3>
+            <div class="menu-buttons">
+                <a href="#" id="action-menu-start-game" onclick="mostrarModal()">Inicio</a>
+                <div id="myModal" class="modal">
+                    <!-- Contenido del modal -->
+                    <div class="modal-content">
+                        <span class="close" onclick="cerrarModal()">&times;</span>
+                        <form>
+                            <label for="nombre">Ingresa un nombre para tu Tamagotchi:</label>
+                            <input type="text" id="nombre" name="nombre">
+                            <button type="button" onclick="redirigirHtml()">Aceptar</button>
+                            <button type="button" onclick="cerrarModal()">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <input type="file" id="archivoTamagochi" accept=".json" />
+                <!-- Ajusta el evento onclick del botón cargarTamagochi -->
+                <a href="#" id="action-menu-settings" onclick="cargarTamagochi()">Tamagochis Guardados</a>
+                <a href="configuracion.html" id="action-menu-settings">Configuración</a>
+            </div>
+        </div>
+    </div>
+	<script src="main.js" type="module"></script>
+</body>
+</html>

@@ -62,7 +62,7 @@ window.ropear = function ropear() {
     console.log(tamago.getEnergia());
     console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
-    console.log("Se le ha vietido a su tamagochi");
+    console.log("Se le ha vestido a su tamagochi");
 }
 
 

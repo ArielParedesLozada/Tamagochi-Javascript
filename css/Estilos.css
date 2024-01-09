@@ -10,20 +10,27 @@
 }
 
 body {
-  background-color: #fafafa;
+  background-image: url("../images/fondo.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Mono', monospace;
+  color: #fafafa;
   transition: background-color .3s;
 }
 
 h1, h2 {
   font-family: 'DM Mono', monospace;
   font-weight: 500;
+  color: #333; 
 }
 
 h3 {
   margin-top: 20px;
   font-family: 'DM Mono', monospace;
   font-weight: 300;
-  font-size: 25px;
 }
 
 .hide {
@@ -32,7 +39,7 @@ h3 {
 
 /*MENU SCREEN*/
 
-.menu {
+.menu, .settings {
   position: absolute;
   top: 50vh;
   transform: translateY(-50%);
@@ -43,21 +50,13 @@ h3 {
 
 /*SETTINGS SCREEN*/
 
-.settings {
-  position: absolute;
-  top: 50vh;
-  transform: translateY(-50%);
-  width: 100%;
-  text-align: center;
-}
-
-.settings-buttons a {
+.settings-buttons a, .buttons a, .menu-buttons a {
   display: inline-block;
-  font-size: 30px;
+  font-size: 40px;
   background-color: transparent;
   border: 2px solid #131313;
-  padding: 5px 10px;
-  margin: 20px 20px 0px 20px;
+  padding: 10px 20px;
+  margin: 100px 20px 0px 20px;
   transition: background-color .1s, color .1s;
   text-decoration: none;
   color: #131313;
@@ -65,7 +64,7 @@ h3 {
   font-family: 'DM Mono', monospace;
 }
 
-.settings-buttons a:hover {
+.settings-buttons a:hover, .buttons a:hover, .menu-buttons a:hover {
   background-color: #131313;
   color: #fafafa;
 }
@@ -75,17 +74,13 @@ h3 {
   text-align: center;
 }
 
-/*GAME SCREEN*/
-
-
-
 .buttons a, .menu-buttons a {
   display: inline-block;
-  font-size: 20px;
+  font-size: 40px;
   background-color: transparent;
   border: 2px solid #131313;
   padding: 10px 20px;
-  margin: 70px 20px 0px 20px;
+  margin: 100px 20px 0px 20px;
   transition: background-color .1s;
   text-decoration: none;
   color: #131313;
@@ -111,12 +106,16 @@ body.nightmode-on {
   color: #fafafa;
 }
 
-body.nightmode-on .settings-buttons a {
+body.nightmode-on .settings-buttons a,
+body.nightmode-on .buttons a,
+body.nightmode-on .menu-buttons a {
   color: #fafafa;
   border: 2px solid #fafafa;
 }
 
-body.nightmode-on .settings-buttons a:hover {
+body.nightmode-on .settings-buttons a:hover,
+body.nightmode-on .buttons a:hover,
+body.nightmode-on .menu-buttons a:hover {
   background-color: #fafafa;
   color: #111;
 }
@@ -134,51 +133,4 @@ body.nightmode-on .buttons a, body.nightmode-on .menu-buttons a {
 body.nightmode-on .buttons a:hover, body.nightmode-on .menu-buttons a:hover {
   background-color: #fafafa;
   color: #111;
-}
-.vida-barra {
-  width: 200px;
-  height: 20px;
-  border: 1px solid #000;
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.vida-llena {
-  width: 100%;
-  height: 100%;
-  background-color: green;
-}
-.barra {
-  width: 200px;
-  height: 20px;
-  border: 1px solid #000;
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.vida-barra {
-  width: 200px;
-  height: 20px;
-  border: 1px solid #000;
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.vida-llena {
-  width: 100%;
-  height: 100%;
-  background-color: green;
-}
-.barra {
-  width: 200px;
-  height: 20px;
-  border: 1px solid #000;
-  position: relative;
-  margin-bottom: 10px;
-}
-
-/*Modallll*/
-
-.modal {
-    display: none;
 }

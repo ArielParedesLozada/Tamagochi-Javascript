@@ -124,3 +124,11 @@ input[type="button"]:hover {
     background-color: transparent;
     background-image: url('../images/golpear.png');
 }
+
+#ropea{
+    background-image: url("../images/ropa.png");
+}
+
+#guardar{
+    background-image: url("../images/guardar.png");
+}

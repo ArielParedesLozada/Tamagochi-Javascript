@@ -2,6 +2,7 @@ import { Observer } from './Entity/Observer.js';
 import { Tamagochi } from './Entity/Tamagochi.js';
 import { TamagochiVestido } from './Entity/DecoratorRopa.js';
 
+
 let vestido = false;
 let tamago;
 let vidaLlena = document.getElementById('vida-llena');
@@ -89,7 +90,36 @@ window.redirigirHtml = function redirigirHtml() {
 
 
 
+window.creaTamagochiGuardado = function creaTamagochiGuardado(nombre, vida, energia, felicidad, estado) {
+    tamago = new Tamagochi(nombre, vida, energia, felicidad, estado);
+    console.log("El nombre de su tamagochi es: " + nombre);
 
+    // Observadores y configuraciones adicionales aquí
+    let vidaObserver = new Observer(() => {
+        vidaLlena.style.width = `${tamago.getVida()}%`;
+        vidaLlena.innerText = `${tamago.getVida()}%`;
+        vidaLlena.style.textAlign = 'right';
+    });
+    let energiaObserver = new Observer(() => {
+        energiaLlena.style.width = `${tamago.getEnergia()}%`;
+        energiaLlena.innerText = `${tamago.getEnergia()}%`;
+        energiaLlena.style.textAlign = 'right';
+    });
+    let felicidadObserver = new Observer(() => {
+        felicidadLlena.style.width = `${tamago.getFelicidad()}%`;
+        felicidadLlena.innerText = `${tamago.getFelicidad()}%`;
+        felicidadLlena.style.textAlign = 'right';
+    });
+    let imagenObserver = new Observer(() => {
+        imagenTamagochi.src = "../images/t" + tamago.getEstado() + ".png";
+    });
+
+    tamago.setearEstado();
+    tamago.addObserver(vidaObserver);
+    tamago.addObserver(energiaObserver);
+    tamago.addObserver(felicidadObserver);
+    tamago.addObserver(imagenObserver);
+};
 
 
 window.creaTamagochi = function creaTamagochi() {
@@ -123,9 +153,13 @@ window.creaTamagochi = function creaTamagochi() {
     tamago.addObserver(imagenObserver);
 }
 window.guardarTamagochi = function guardarTamagochi() {
-    
+    const nombreTamagochi = localStorage.getItem('nombreTamagochi');
+
     const estado = {
+        nombreTamagochi: nombreTamagochi,
         vidaTamagotchi: tamago.getVida(),
+        energiaTamagochi: tamago.getEnergia(),
+        felicidadTamagochi: tamago.getFelicidad(),
         tipoEstado: tamago.getEstado(), 
     };
 
@@ -144,15 +178,50 @@ window.guardarTamagochi = function guardarTamagochi() {
     
 }
 window.cargarTamagochi = function cargarTamagochi() {
-    const file = event.target.files[0];
+    const input = document.getElementById('archivoTamagochi');
+    const file = input.files[0];
+
     if (file) {
         const reader = new FileReader();
         reader.onload = function (e) {
             const estado = JSON.parse(e.target.result);
-            localStorage.setItem('nombreUsuario', estado.nombreUsuario);
             localStorage.setItem('estadoTamagotchi', JSON.stringify(estado));
-            window.location.href = '../Index.html';
+            window.location.href = '../Tamagochi.html';
         };
         reader.readAsText(file);
+    } else {
+        console.error("No se seleccionó ningún archivo.");
     }
 }
+window.onload = function() {
+    // Verifica si hay un estadoTamagotchi guardado en el localStorage
+    const estadoTamagotchiJSON = localStorage.getItem('estadoTamagotchi');
+
+    if (estadoTamagotchiJSON) {
+        const estadoTamagotchi = JSON.parse(estadoTamagotchiJSON);
+
+        // Crea un nuevo Tamagochi con la información almacenada
+        tamago = new Tamagochi(
+            estadoTamagotchi.nombreTamagochi,
+            estadoTamagotchi.vidaTamagotchi,
+            estadoTamagotchi.energiaTamagochi,
+            estadoTamagotchi.felicidadTamagochi,
+            estadoTamagotchi.tipoEstado
+        );
+
+        // Actualiza la interfaz gráfica o realiza otras acciones necesarias
+        console.log("Tamagochi cargado exitosamente.");
+
+        // Ejecuta la función que actualiza la interfaz y agrega observadores
+        creaTamagochiGuardado(
+            estadoTamagotchi.nombreTamagochi,
+            estadoTamagotchi.vidaTamagotchi,
+            estadoTamagotchi.energiaTamagochi,
+            estadoTamagotchi.felicidadTamagochi,
+            estadoTamagotchi.tipoEstado
+        );
+    } else {
+        // Si no hay datos guardados, crea un nuevo Tamagochi
+        console.log("Tamagochi NOOOOO cargado exitosamente.");
+    }
+};

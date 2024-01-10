@@ -21,36 +21,7 @@ body {
   transition: background-color .3s;
 }
 
-h1, h2 {
-  font-family: 'DM Mono', monospace;
-  font-weight: 500;
-  color: #333; 
-}
-
-h3 {
-  margin-top: 20px;
-  font-family: 'DM Mono', monospace;
-  font-weight: 300;
-}
-
-.hide {
-  display: none;
-}
-
-/*MENU SCREEN*/
-
-.menu, .settings {
-  position: absolute;
-  top: 50vh;
-  transform: translateY(-50%);
-  width: 100%;
-  text-align: center;
-  font-size: 25px;
-}
-
-/*SETTINGS SCREEN*/
-
-.settings-buttons a, .buttons a, .menu-buttons a {
+.boton{
   display: inline-block;
   font-size: 40px;
   background-color: transparent;
@@ -64,73 +35,7 @@ h3 {
   font-family: 'DM Mono', monospace;
 }
 
-.settings-buttons a:hover, .buttons a:hover, .menu-buttons a:hover {
+.boton:not([disabled]):hover{
   background-color: #131313;
   color: #fafafa;
-}
-
-.settings-buttons {
-  width: 100%;
-  text-align: center;
-}
-
-.buttons a, .menu-buttons a {
-  display: inline-block;
-  font-size: 40px;
-  background-color: transparent;
-  border: 2px solid #131313;
-  padding: 10px 20px;
-  margin: 100px 20px 0px 20px;
-  transition: background-color .1s;
-  text-decoration: none;
-  color: #131313;
-  font-weight: 300;
-  font-family: 'DM Mono', monospace;
-  transition: background-color .1s, color .1s;
-}
-
-
-
-.buttons, .menu-buttons {
-  width: 100%;
-  text-align: center;
-}
-
-
-
-
-/*Night mode*/
-
-body.nightmode-on {
-  background-color: #111;
-  color: #fafafa;
-}
-
-body.nightmode-on .settings-buttons a,
-body.nightmode-on .buttons a,
-body.nightmode-on .menu-buttons a {
-  color: #fafafa;
-  border: 2px solid #fafafa;
-}
-
-body.nightmode-on .settings-buttons a:hover,
-body.nightmode-on .buttons a:hover,
-body.nightmode-on .menu-buttons a:hover {
-  background-color: #fafafa;
-  color: #111;
-}
-
-body.nightmode-on #name {
-  color: #111;
-  background-color: #fafafa;
-}
-
-body.nightmode-on .buttons a, body.nightmode-on .menu-buttons a {
-  color: #fafafa;
-  border: 2px solid #fafafa;
-}
-
-body.nightmode-on .buttons a:hover, body.nightmode-on .menu-buttons a:hover {
-  background-color: #fafafa;
-  color: #111;
 }

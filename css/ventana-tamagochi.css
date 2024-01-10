@@ -1,47 +1,7 @@
-body {
+.cuerpo {
     background-image: url("../images/fondo.gif");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-#nombre {
-    font-size: 18px;
-    color: #333;
-    margin-top: 10px;
-}
-h1{
-    text-align: center;
-    font-family: 'DM Mono', monospace;
-    color: #333;
-}
-form {
-    text-align: center!important;
 }
 
-input[type="text"] {
-    width: 225px;
-    border-radius: 5px;
-    font-family: 'DM Mono', monospace;
-}
-
-input[type="button"] {
-    display: inline-block;
-    font-size: 12px;
-    background-color: transparent;
-    border: 2px solid #131313;
-    padding: 5px 10px;
-    transition: background-color .1s, color .1s;
-    text-decoration: none;
-    color: #131313;
-    font-weight: 300;
-    font-family: 'DM Mono', monospace;
-}
-input[type="button"]:hover {
-    background-color: #131313;
-    color: #fafafa;
-}
 .barra {
     width: 25vw;
     height: 35px;
@@ -67,7 +27,8 @@ input[type="button"]:hover {
     height: 100%;
     background-color: yellow;
 }
-.vida-llena:after{
+
+.vida-llena:after {
     content: url("../images/vida.png");
 }
 
@@ -79,56 +40,71 @@ input[type="button"]:hover {
     content: url("../images/felicidad.png");
 }
 
-.boton{
+.contenedor {
+    display: flex;
+}
+
+.imagen-tamagochi {
+    margin: 0 auto;
+}
+
+.opciones-2 {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: right;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.opciones-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.boton {
     height: 100px;
     width: 100px;
     background-repeat: no-repeat;
     background-position: center;
+    border: none;
+    background-color: transparent;
 }
 
-.boton:hover{
+.boton:hover {
     height: 120px;
+    width: 120px;
 }
 
 #alimenta {
-    margin-top: 10px;
-    border: none;
-    background-color: transparent;
     background-image: url('../images/alimentar.png');
 }
 
 #mima {
-    margin-top: 10px;
-    border: none;
-    background-color: transparent;
     background-image: url('../images/mimar.png');
 }
 
 #juega {
-    margin-top: 10px;
-    border: none;
-    background-color: transparent;
     background-image: url('../images/jugar.png');
 }
 
 #cura {
-    margin-top: 10px;
-    border: none;
-    background-color: transparent;
     background-image: url('../images/curar.png');
 }
 
 #golpea {
-    margin-top: 10px;
-    border: none;
-    background-color: transparent;
     background-image: url('../images/golpear.png');
 }
 
-#ropea{
+#viste {
     background-image: url("../images/ropa.png");
 }
 
-#guardar{
+#armadura{
+    background-image: url("../images/armadura.png");
+}
+
+#guarda {
     background-image: url("../images/guardar.png");
 }

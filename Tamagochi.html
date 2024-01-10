@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/ventana-tamagochi.css">
-    <link rel="icon" href="img/Logotipo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -28,15 +27,16 @@
                 <div class="imagen-barra"></div>
             </div>
             <center>
+                <form>
+                    <label for="nombre">Inicia con tu tamagochi</label>
+                    <input type="button" id="ingresa" onclick="creaTamagochi()">
+                </form>
                 <div>
                     <img src="images/tneutral.png" id="imagen-tamagochi" alt="Tamagochi">
                 </div>
             </center>
         </div>
-        <form>
-            <label for="nombre">Inicia con tu tamagochi</label>
-            <input type="button" id="ingresa" onclick="creaTamagochi()">
-        </form>
+        
         <center>
             <form>
                 <input type="button" id="alimenta" class="boton" onclick="alimentar()">
@@ -46,7 +46,7 @@
                 <input type="button" id="golpea" class="boton" onclick="golpear()">
                 <input type="button" id="vida" value="Muestra Vida" onclick="muestraVida()">
                 <input type="button" id="ropea" class="boton" onclick="ropear()">
-                <input type="button" id="guardar" class="boton" onclick="guardarTamagochi()"> Funcion para guardar tamagochi
+                <input type="button" id="guardar" class="boton" onclick="guardarTamagochi()">
             </form>
         </center>
     </div>

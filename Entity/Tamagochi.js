@@ -1,6 +1,15 @@
 import { FactoryEstados } from "./FactoryEstados.js";
 
 export class Tamagochi {
+    static #instance = null;
+
+    static getInstance(nombre, vida, energia, felicidad, estado) {
+        if (!Tamagochi.#instance) {
+            Tamagochi.#instance = new Tamagochi(nombre, vida, energia, felicidad, estado);
+        }
+        return Tamagochi.#instance;
+    }
+
     constructor(nombre, vida, energia, felicidad, estado) {
         this.nombre = nombre;
         this.vida = vida;
@@ -10,19 +19,19 @@ export class Tamagochi {
         this.observers = [];
     }
 
-    getVida(){
+    getVida() {
         return this.vida;
     };
 
-    getEnergia(){
+    getEnergia() {
         return this.energia;
     };
 
-    getFelicidad(){
+    getFelicidad() {
         return this.felicidad;
     };
 
-    getTamagochi(){
+    getTamagochi() {
         return this;
     }
 

@@ -132,6 +132,14 @@ input[type="button"]:hover {
 }
 
 #ropea{
+    background-image: url("../images/ropa.png");
+}
+
+#guardar{
+    background-image: url("../images/guardar.png");
+}
+
+#ropea{
     margin-top: 10px;
     border: none;
     background-color: transparent;

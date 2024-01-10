@@ -22,6 +22,10 @@ export class Tamagochi {
         return this.felicidad;
     };
 
+    getTamagochi(){
+        return this;
+    }
+
     addObserver(observer) {
         this.observers.push(observer);
     };

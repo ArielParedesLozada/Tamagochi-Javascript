@@ -7,7 +7,7 @@ import { TamagochiLimpio } from './Entity/DecoratorLimpieza.js';
 let vestido = false;
 let limpio = false;
 let tamagoJSON = JSON.parse(localStorage.getItem('tamagochi'));
-let tamago = new Tamagochi(tamagoJSON.nombre, tamagoJSON.vida, tamagoJSON.energia, tamagoJSON.felicidad, tamagoJSON.estado);
+let tamago = Tamagochi.getInstance(tamagoJSON.nombre, tamagoJSON.vida, tamagoJSON.energia, tamagoJSON.felicidad, tamagoJSON.estado);
 let vidaLlena = document.getElementById('vida-llena');
 let energiaLlena = document.getElementById('energia-llena');
 let felicidadLlena = document.getElementById('felicidad-llena');

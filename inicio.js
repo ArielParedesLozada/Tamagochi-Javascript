@@ -22,6 +22,7 @@ window.cargaTamagochi = function cargaTamagochi() {
 window.creaTamagochi = function creaTamagochi(){
     let nombre = nombreInput.value;
     let tamago = Tamagochi.getInstance(nombre,100,100,50,"neutral");
+    tamago.nombre = nombre;
     let tamagoJSON =JSON.stringify(tamago, (key, value) =>{
         if (key === 'estado') {
             return tamago.getEstado();
@@ -30,6 +31,7 @@ window.creaTamagochi = function creaTamagochi(){
     }) ;
     localStorage.setItem('tamagochi', tamagoJSON);
     window.location.href = 'Tamagochi.html';
+    
 }
 
 window.borraTamagochi = function borraTamagochi(){

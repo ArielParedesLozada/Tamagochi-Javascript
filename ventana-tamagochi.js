@@ -88,23 +88,33 @@ window.muestraVida = function muestraVida() {
         "\nAseo: " + limpioMensaje, 2000);
 }
 window.vestir = function vestir() {
+    let escudo = document.getElementById('escudo');
+
     if (vestido) {
         tamago = tamago.getTamagochi();
         alert("Se le ha desvestido a su tamagochi");
-
         vestido = false;
-    } else if (tamago.getEstado() != "muerto") {
+        escudo.style.display = 'none';
+    } else if (tamago.getEstado() !== "muerto") {
         tamago = new TamagochiVestido(tamago.getTamagochi());
         alert("Se le ha vestido a su tamagochi");
         vestido = true;
+        escudo.style.display = 'block';
+        escudo.style.width = '350px';
+        escudo.style.height = '200px';
+        escudo.style.top = (imagenTamagochi.offsetTop + imagenTamagochi.offsetHeight / 1.5 - escudo.offsetHeight / 2) + 'px';
+        escudo.style.left = (imagenTamagochi.offsetLeft + imagenTamagochi.offsetWidth / 0.5 - escudo.offsetWidth / 2) + 'px'
+
     } else {
-        alert(tamago.nombre + " ha Facellido ya no lo podemos vestir jamás ")
+        alert(tamago.nombre + " ha fallecido y no lo podemos vestir jamás ")
     }
+
     console.log(tamago.getVida());
     console.log(tamago.getEnergia());
     console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
+
 
 window.limpiar = function limpiar(){
     if (limpio) {

@@ -54,10 +54,20 @@ body {
 
 .contenedor {
     display: flex;
+    position: relative;
 }
 
 .imagen-tamagochi {
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+#escudo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .opciones-2 {
@@ -83,6 +93,7 @@ body {
     border: none;
     background-color: transparent;
 }
+
 .boton:hover {
     height: 120px !important;
     width: 120px !important;
@@ -119,3 +130,4 @@ body {
 #guarda {
     background-image: url("../images/guardar.png");
 }
+

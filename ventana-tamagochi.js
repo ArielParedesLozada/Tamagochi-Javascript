@@ -12,7 +12,6 @@ let vidaLlena = document.getElementById('vida-llena');
 let energiaLlena = document.getElementById('energia-llena');
 let felicidadLlena = document.getElementById('felicidad-llena');
 let imagenTamagochi = document.getElementById('imagen-tamagochi');
-let boton
 
 let tamagoGuardado = localStorage.getItem('tamagochi');
 if (tamagoGuardado !== null) {

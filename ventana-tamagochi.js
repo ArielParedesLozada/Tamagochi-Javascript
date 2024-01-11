@@ -126,7 +126,7 @@ window.limpiar = function limpiar(){
         alert("Se ha limpiado a su tamagochi");
         limpio = true;
     } else {
-        alert(tamago.nombre + " ha Facellido ya no se puede ensuciar ni limpiar jamás ")
+        alert(tamago.nombre + " ha facellido ya no se puede ensuciar ni limpiar jamás. ")
     }
     console.log(tamago.getVida());
     console.log(tamago.getEnergia());

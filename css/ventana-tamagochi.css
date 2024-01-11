@@ -1,5 +1,17 @@
 body {
     background-image: url("../images/fondo.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tamagotchi-nombre {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 10px; 
+    font-weight: 300;
+    font-family: 'DM Mono', monospace;
 }
 
 .barra {
@@ -42,10 +54,20 @@ body {
 
 .contenedor {
     display: flex;
+    position: relative;
 }
 
 .imagen-tamagochi {
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+#escudo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .opciones-2 {
@@ -73,8 +95,8 @@ body {
 }
 
 .boton:hover {
-    height: 120px;
-    width: 120px;
+    height: 120px !important;
+    width: 120px !important;
 }
 
 #alimenta {
@@ -108,3 +130,4 @@ body {
 #guarda {
     background-image: url("../images/guardar.png");
 }
+

@@ -6,6 +6,7 @@ import { TamagochiLimpio } from './Entity/DecoratorLimpieza.js';
 
 let vestido = false;
 let limpio = false;
+let puedeCurar = false; 
 let tamagoJSON = JSON.parse(localStorage.getItem('tamagochi'));
 let tamago = Tamagochi.getInstance(tamagoJSON.nombre, tamagoJSON.vida, tamagoJSON.energia, tamagoJSON.felicidad, tamagoJSON.estado);
 let vidaLlena = document.getElementById('vida-llena');
@@ -68,13 +69,26 @@ window.jugar = function jugar() {
     console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
-window.curar = function curar() {
-    tamago.curar();
-    console.log(tamago.getVida());
-    console.log(tamago.getEnergia());
-    console.log(tamago.getFelicidad());
-    console.log(tamago.getEstado());
+window.curarTamagochi = function curarTamagochi() {
+    if (puedeCurar) {
+        tamago.curar();
+        console.log("Tamagochi curado:");
+        console.log("Vida: " + tamago.getVida());
+        console.log("Energía: " + tamago.getEnergia());
+        console.log("Felicidad: " + tamago.getFelicidad());
+        console.log("Estado: " + tamago.getEstado());
+        puedeCurar = false;
+    } else {
+        alert("Debe esperar no se puede curar ahora");
+    }
 }
+window.curar = function curar() {
+    setTimeout(function() {
+        puedeCurar = true;
+    }, 120000);
+    curarTamagochi(); 
+}
+
 window.muestraVida = function muestraVida() {
     let vestidoMensaje = vestido ? "Vestido" : "Desvestido";
     let limpioMensaje = limpio ? "Limpio" : "Sucio";
@@ -103,7 +117,7 @@ window.vestir = function vestir() {
         escudo.style.width = '350px';
         escudo.style.height = '200px';
         escudo.style.top = (imagenTamagochi.offsetTop + imagenTamagochi.offsetHeight / 1.5 - escudo.offsetHeight / 2) + 'px';
-        escudo.style.left = (imagenTamagochi.offsetLeft + imagenTamagochi.offsetWidth / 0.5 - escudo.offsetWidth / 2) + 'px'
+        escudo.style.left = (imagenTamagochi.offsetLeft + imagenTamagochi.offsetWidth / 0.5 - escudo.offsetWidth / 2) + 'px';
 
     } else {
         alert(tamago.nombre + " ha fallecido y no lo podemos vestir jamás ")
@@ -118,21 +132,24 @@ window.vestir = function vestir() {
 
 window.limpiar = function limpiar(){
     if (limpio) {
-        tamago = tamago.getTamagochi();
         alert("Se ha ensuciado a su tamagochi");
         limpio = false;
-    } else if (tamago.getEstado() != "muerto"){
+        document.getElementById("limpia").disabled = false;
+    } else if (tamago.getEstado() !== "muerto") {
         tamago = new TamagochiLimpio(tamago.getTamagochi());
         alert("Se ha limpiado a su tamagochi");
         limpio = true;
+        document.getElementById("limpia").disabled = true;
     } else {
-        alert(tamago.nombre + " ha Facellido ya no se puede ensuciar ni limpiar jamás ")
+        alert(tamago.nombre + " ha fallecido, ya no se puede ensuciar ni limpiar jamás");
     }
-    console.log(tamago.getVida());
-    console.log(tamago.getEnergia());
-    console.log(tamago.getFelicidad());
-    console.log(tamago.getEstado());
 }
+
+setInterval(function() {
+    if (limpio) {
+        limpiar();
+    }
+}, 120000);
 
 window.guardar = function guardar(){
     let tamagoJSON =JSON.stringify(tamago.getTamagochi(), (key, value) =>{

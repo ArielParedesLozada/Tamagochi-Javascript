@@ -83,7 +83,13 @@ window.curar = function curar() {
             puedeCurar = true;
         }, 12000);
     } else {
-        alert("Debe esperar, no se puede curar ahora");
+        var mensajeElemento = document.getElementById("mensaje");
+        mensajeElemento.innerHTML = "Debe esperar, no se puede curar ahora";
+
+        mensajeElemento.style.display = "block";
+        setTimeout(function() {
+            mensajeElemento.style.display = "none";
+        }, 3000);
     }
 }
 
@@ -105,12 +111,24 @@ window.vestir = function vestir() {
 
     if (vestido) {
         tamago = tamago.getTamagochi();
-        alert("Se le ha desvestido a su tamagochi");
+        var mensajeElemento = document.getElementById("mensaje");
+        mensajeElemento.innerHTML =" Se le ha desvestido a su tamagochi.";
+
+        mensajeElemento.style.display = "block";
+        setTimeout(function() {
+            mensajeElemento.style.display = "none";
+        }, 3000);
         vestido = false;
         escudo.style.display = 'none';
     } else if (tamago.getEstado() !== "muerto") {
         tamago = new TamagochiVestido(tamago.getTamagochi());
-        alert("Se le ha vestido a su tamagochi");
+        var mensajeElemento = document.getElementById("mensaje");
+        mensajeElemento.innerHTML = " Se le ha vestido a su tamagochi.";
+
+        mensajeElemento.style.display = "block";
+        setTimeout(function() {
+            mensajeElemento.style.display = "none";
+        }, 3000);
         vestido = true;
         escudo.style.display = 'block';
         escudo.style.width = '350px';
@@ -119,7 +137,13 @@ window.vestir = function vestir() {
         escudo.style.left = (imagenTamagochi.offsetLeft + imagenTamagochi.offsetWidth / 0.5 - escudo.offsetWidth / 2) + 'px';
 
     } else {
-        alert(tamago.nombre + " ha fallecido y no lo podemos vestir jamás ")
+        var mensajeElemento = document.getElementById("mensaje");
+        mensajeElemento.innerHTML = tamago.nombre + " ha fallecido y no lo podemos vestir jamás ";
+
+        mensajeElemento.style.display = "block";
+        setTimeout(function() {
+            mensajeElemento.style.display = "none";
+        }, 3000);
     }
 
     console.log(tamago.getVida());
@@ -131,16 +155,34 @@ window.vestir = function vestir() {
 
 window.limpiar = function limpiar(){
     if (limpio) {
-        alert("Se ha ensuciado a su tamagochi");
+        var mensajeElemento = document.getElementById("mensaje");
+        mensajeElemento.innerHTML = tamago.nombre + " Se ha ensuciado a su tamagochi.";
+
+        mensajeElemento.style.display = "block";
+        setTimeout(function() {
+            mensajeElemento.style.display = "none";
+        }, 3000);
         limpio = false;
         document.getElementById("limpia").disabled = false;
     } else if (tamago.getEstado() !== "muerto") {
         tamago = new TamagochiLimpio(tamago.getTamagochi());
-        alert("Se ha limpiado a su tamagochi");
+        var mensajeElemento = document.getElementById("mensaje");
+        mensajeElemento.innerHTML = " Se ha limpiado a su tamagochi. ";
+
+        mensajeElemento.style.display = "block";
+        setTimeout(function() {
+            mensajeElemento.style.display = "none";
+        }, 3000);
         limpio = true;
         document.getElementById("limpia").disabled = true;
     } else {
-        alert(tamago.nombre + " ha Facellido ya no se puede ensuciar ni limpiar jamás ")
+        var mensajeElemento = document.getElementById("mensaje");
+        mensajeElemento.innerHTML = tamago.nombre + " ha fallecido ya no se puede ensuciar ni limpiar jamás. ";
+
+        mensajeElemento.style.display = "block";
+        setTimeout(function() {
+            mensajeElemento.style.display = "none";
+        }, 3000);
     }
 }
 

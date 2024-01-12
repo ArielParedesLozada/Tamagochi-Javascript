@@ -140,3 +140,16 @@ body {
     background-image: url("../images/guardar.png");
 }
 
+#mensaje {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7f62c2;
+    color: white;
+    padding: 20px; 
+    z-index: 1000;
+    border: 2px solid rgb(214, 163, 163); 
+    text-align: center; 
+}

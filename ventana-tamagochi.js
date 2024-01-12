@@ -141,7 +141,7 @@ window.limpiar = function limpiar(){
         limpio = true;
         document.getElementById("limpia").disabled = true;
     } else {
-        alert(tamago.nombre + " ha fallecido, ya no se puede ensuciar ni limpiar jamás");
+        alert(tamago.nombre + " ha Facellido ya no se puede ensuciar ni limpiar jamás ")
     }
 }
 

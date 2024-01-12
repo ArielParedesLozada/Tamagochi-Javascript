@@ -6,7 +6,7 @@ import { TamagochiLimpio } from './Entity/DecoratorLimpieza.js';
 
 let vestido = false;
 let limpio = false;
-let puedeCurar = false; 
+let puedeCurar = true; 
 let tamagoJSON = JSON.parse(localStorage.getItem('tamagochi'));
 let tamago = Tamagochi.getInstance(tamagoJSON.nombre, tamagoJSON.vida, tamagoJSON.energia, tamagoJSON.felicidad, tamagoJSON.estado);
 let vidaLlena = document.getElementById('vida-llena');
@@ -78,15 +78,17 @@ window.curarTamagochi = function curarTamagochi() {
         console.log("Felicidad: " + tamago.getFelicidad());
         console.log("Estado: " + tamago.getEstado());
         puedeCurar = false;
+
+        setTimeout(function() {
+            puedeCurar = true;
+        }, 12000);
     } else {
-        alert("Debe esperar no se puede curar ahora");
+        alert("Debe esperar, no se puede curar ahora");
     }
 }
+
 window.curar = function curar() {
-    setTimeout(function() {
-        puedeCurar = true;
-    }, 120000);
-    curarTamagochi(); 
+    curarTamagochi();
 }
 
 window.muestraVida = function muestraVida() {
@@ -149,7 +151,7 @@ setInterval(function() {
     if (limpio) {
         limpiar();
     }
-}, 120000);
+}, 12000);
 
 window.guardar = function guardar(){
     let tamagoJSON =JSON.stringify(tamago.getTamagochi(), (key, value) =>{

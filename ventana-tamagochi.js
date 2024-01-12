@@ -102,7 +102,7 @@ window.muestraVida = function muestraVida() {
         "\nEnergía: " + tamago.getEnergia() +
         "\nFelicidad: " + tamago.getFelicidad() +
         "\nEstado: " + tamago.getEstado() +
-        "\nNombre: " + tamago.nombre +
+        "\nNombre: " + tamago.getNombre() +
         "\nVestimenta: " + vestidoMensaje +
         "\nAseo: " + limpioMensaje, 2000);
 }

@@ -9,6 +9,9 @@ export class TamagochiLimpio extends Decorator{
         return this.tamagochi;
     }
 
+    getNombre(){
+        return this.tamagochi.nombre;
+    }
     getVida(){
         return this.tamagochi.vida;
     };

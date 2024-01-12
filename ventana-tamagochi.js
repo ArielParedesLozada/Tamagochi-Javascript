@@ -69,7 +69,7 @@ window.jugar = function jugar() {
     console.log(tamago.getFelicidad());
     console.log(tamago.getEstado());
 }
-window.curarTamagochi = function curarTamagochi() {
+window.curar = function curar() {
     if (puedeCurar) {
         tamago.curar();
         console.log("Tamagochi curado:");
@@ -87,9 +87,6 @@ window.curarTamagochi = function curarTamagochi() {
     }
 }
 
-window.curar = function curar() {
-    curarTamagochi();
-}
 
 window.muestraVida = function muestraVida() {
     let vestidoMensaje = vestido ? "Vestido" : "Desvestido";

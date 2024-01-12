@@ -19,6 +19,10 @@ export class Tamagochi {
         this.observers = [];
     }
 
+    getNombre(){
+        return this.nombre;
+    }
+
     getVida() {
         return this.vida;
     };

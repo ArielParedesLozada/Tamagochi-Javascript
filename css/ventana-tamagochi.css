@@ -9,11 +9,20 @@ body {
     font-weight: bold;
     color: #333;
     text-align: center;
-    margin-top: 10px; 
-    font-weight: 300;
+    text-decoration: none;
+    text-transform: capitalize;
     font-family: 'DM Mono', monospace;
-}
-
+  }
+  
+  #contenedor-tamagotchi-nombre {
+    border: 2px solid #333;
+    padding: 10px; 
+    display: inline-block; 
+  }
+  
+  #contenedor-tamagotchi-nombre p {
+    margin: 5;
+  }
 .barra {
     width: 25vw;
     height: 35px;
@@ -131,3 +140,16 @@ body {
     background-image: url("../images/guardar.png");
 }
 
+#mensaje {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7f62c2;
+    color: white;
+    padding: 20px; 
+    z-index: 1000;
+    border: 2px solid rgb(214, 163, 163); 
+    text-align: center; 
+}

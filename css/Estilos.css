@@ -19,7 +19,7 @@ h1, h2 {
 
 .boton {
   display: block;
-  font-size: 40px;
+  font-size: 30px;
   background-color: transparent;
   border: 2px solid #131313;
   padding: 10px 20px;
@@ -33,7 +33,7 @@ h1, h2 {
 }
 #nombre{
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   width: 600px;
 }
 
@@ -52,4 +52,16 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   align-items: center;
+}
+.cat-image {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cat-image img {
+  max-width: 50%;
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  width: 250px;
+  height: auto;
 }
